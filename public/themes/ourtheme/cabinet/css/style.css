@@ -1,0 +1,152 @@
+header {
+    background: url("../img/background.png");
+    height: 60px;
+    background-color: #40858f;
+    opacity: 0.8;	
+}
+
+.header-row {
+
+    background-color: #40858f;
+    opacity: 0.8;
+
+}
+
+.wrapperPhMail {
+    display: flex;
+    margin-left: 25%;
+}
+
+.wrapperLK {
+    display: flex;
+    margin-left: 30%;
+
+    align-items: center;
+    justify-content: center;
+}
+
+h5 {
+    color: #ffffff;
+    font-family: "Gotham Pro", "Arial", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+
+    margin-left: 10px;
+}
+
+.nav-link {
+    color: #41868f;
+}
+
+.navbar-brand {
+    margin-left: 15%;
+    margin-right: 5%;
+}
+
+.nav-link:hover {
+    color: #41868f;
+    text-decoration: underline;
+}
+
+.navbarRow {
+    background-color: #dbdbdb;
+}
+
+.logoh2Right {
+    margin-right: 2%;
+}
+
+.logoh2Left {
+    margin-left: 2%;
+}
+
+.separator {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.logo {
+    width: 16px;
+    height: 16px;
+}
+
+.refLK {
+    display: flex;
+    width: 50%;
+}
+
+.carImg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.savePresAndLogo {
+    display: flex;
+    position: absolute;
+    top: 55%;
+    left: 18%;
+    background-color: #436c6e;
+
+    height: 5%;
+    width: 20%;
+    border-radius: 20px;
+
+    border: 0;
+
+    color: #f3f5f6;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.inBtn {
+    margin-left: 10px;
+}
+
+.carouselFluid {
+    padding: 0;
+}
+
+.textOnCarouselH4, .textOnCarouselP {
+    position: absolute;
+    color: #ffffff;
+    font-family: "Gotham Pro", "Arial", sans-serif;
+    font-weight: 500;
+}
+
+.textOnCarouselH4 {
+    top: 35%;
+    left: 18%;
+    font-size: 52px;
+}
+
+.textOnCarouselP {
+    top: 45%;
+    left: 18%;
+    font-size: 20px;
+}
+
+.viewport-5 {
+    min-height: 5vh;
+}
+
+.viewport-10 {
+    min-height: 10vh;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: #f3f5f6;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("../img/back.png");
+}
+
+.carousel-control-next-icon {
+    background-image: url("../img/next.png");
+}
