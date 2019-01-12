@@ -55,6 +55,9 @@ $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );
 
+
+$response->headers->addCacheControlDirective('no-cache', true);
+$response->headers->set('X-Accel-Expires', '0');
 $response->send();
 
 $kernel->terminate($request, $response);

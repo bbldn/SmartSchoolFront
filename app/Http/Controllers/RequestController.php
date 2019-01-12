@@ -9,10 +9,18 @@ class RequestController
     public static function post($address, $data = [])
     {
         $token = session('token', null);
+
+        $headers = [
+            'Customer-User-Agent' => request()->userAgent(),
+            'Customer-IP' => request()->ip(),
+        ];
+
         if ($token != null) {
-            $data['token'] = $token;
+            $headers['Authorization'] = "Bearer $token";
         }
-        $response = Guzzle::post($address, ['form_params' => $data]);
+
+        $response = Guzzle::post($address, ['form_params' => $data, 'headers' => $token]);
+
         if ($response->getStatusCode() != 200) {
             return false;
         }
@@ -21,12 +29,23 @@ class RequestController
 
     public static function get($address, $data = [])
     {
+        $token = session('token', null);
         $params = "?";
         foreach ($data as $key => $value) {
             $params .= "$key=$value&";
         }
         $params = substr($params, 0, strlen($params) - 1);
-        $response = Guzzle::get($address . $params);
+
+        $headers = [
+            'Customer-User-Agent' => request()->userAgent(),
+            'Customer-IP' => request()->ip(),
+        ];
+
+        if ($token != null) {
+            $headers['Authorization'] = "Bearer $token";
+        }
+
+        $response = Guzzle::get($address . $params, ['headers' => $headers]);
         if ($response->getStatusCode() != 200) {
             return false;
         }
