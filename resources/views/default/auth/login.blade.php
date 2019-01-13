@@ -62,6 +62,13 @@
                                 </a>
                             </div>
                         </div>
+                        @if ($errors->has('error'))
+                            <div class="row justify-content-center">
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $errors->first('error') }}</strong>
+                                    </span>
+                            </div>
+                        @endif
                     </form>
                 </div>
             </div>

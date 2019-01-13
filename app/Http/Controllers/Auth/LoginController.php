@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Exceptions\AuthException;
 use App\Http\Controllers\RequestController;
 use Illuminate\Http\Request;
 
@@ -22,15 +23,22 @@ class LoginController extends BaseController
         }
 
         $data = $this->credentials($request);
-        $result = RequestController::post(env('TARGET') . '/auth/login/first-stage', $data);
+
+        try {
+            $result = $this->getData(env('TARGET') . '/auth/login/first-stage', $data);
+        } catch (AuthException $e) {
+            return $this->resetAuthAndRedirect();
+        }
+
         if ($result['ok'] == true) {
             $request->session()->put('sms_code', $result['data']['sms_code']);
-            $request->session()->put('identifier', $result['data']['$result']);
-
+            $request->session()->put('identifier', $result['data']['identifier']);
             return $this->sendCodeResponse();
         }
+
         $this->incrementLoginAttempts($request);
-        return $this->sendFailedLoginResponse($request);
+//        return $this->sendFailedLoginResponse($request);
+        return $this->showLoginForm($result['errors']);
     }
 
     public function loginSecondStage(Request $request)
@@ -42,26 +50,39 @@ class LoginController extends BaseController
         }
 
         $data = [
-            'sms_code' => $request->get('code'),
+            'sms_code' => $request->get('sms_code'),
             'identifier' => $request->session()->get('identifier'),
         ];
-        $result = RequestController::post(env('TARGET') . '/auth/login/second-stage', $data);
+
+        try {
+            $result = $this->getData(env('TARGET') . '/auth/login/second-stage', $data);
+        } catch (AuthException $e) {
+            return $this->resetAuthAndRedirect();
+        }
 
         if ($result['ok'] == true) {
             $request->session()->remove('identifier');
+            $request->session()->remove('sms_code');
 
             $request->session()->put('token', $result['data']['token']);
             $request->session()->put('expire', $result['data']['expire']);
             return $this->sendLoginResponse($request);
-        } else {
-            dump($result['errors']);
         }
+        return $this->showCodeForm($result['errors']);
     }
 
     public function logout(Request $request)
     {
-        RequestController::post(env('TARGET') . '/auth/logout');
+//        RequestController::post(env('TARGET') . '/auth/logout');
         $request->session()->remove('token');
+        $request->session()->remove('expire');
+        return redirect($this->redirectTo());
+    }
+
+    public function back(Request $request)
+    {
+        $request->session()->remove('identifier');
+        $request->session()->remove('sms_token');
         return redirect($this->redirectTo());
     }
 }

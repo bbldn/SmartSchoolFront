@@ -17,12 +17,12 @@
 
                                 <div class="col-md-6">
                                     <input id="email" type="text"
-                                           class="form-control{{ $errors->has('code') ? ' is-invalid' : '' }}"
-                                           name="code" required autofocus>
+                                           class="form-control{{ $errors->has('sms_code') ? ' is-invalid' : '' }}"
+                                           name="sms_code" required autofocus>
 
-                                    @if ($errors->has('code'))
+                                    @if ($errors->has('sms_code'))
                                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('code') }}</strong>
+                                        <strong>{{ $errors->first('sms_code') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -39,6 +39,13 @@
                                     </a>
                                 </div>
                             </div>
+                            @if ($errors->has('error'))
+                                <div class="row justify-content-center">
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $errors->first('error') }}</strong>
+                                    </span>
+                                </div>
+                            @endif
                         </form>
                     </div>
                 </div>

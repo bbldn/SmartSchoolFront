@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\AuthException;
 use Symfony\Component\HttpFoundation\Request;
 
 class ChildrenController extends Controller
@@ -14,9 +15,10 @@ class ChildrenController extends Controller
     public function indexAction(Request $request)
     {
         $date = $request->get('date', date('Y-m-d'));
-        $result = RequestController::post(env('TARGET') . '/front/children/index', ['date' => $date]);
-        if (!is_array($result) || $result['ok'] == false) {
-            abort(500);
+        try {
+            $result = $this->getData(env('TARGET') . '/front/children/index', ['date' => $date]);
+        } catch (AuthException $e) {
+            return $this->resetAuthAndRedirect();
         }
         return view('cabinet.cabinet', $result['data']);
     }
@@ -24,10 +26,13 @@ class ChildrenController extends Controller
     public function childAction(Request $request, $id)
     {
         $date = $request->get('date', date('Y-m-d'));
-        $result = RequestController::post(env('TARGET') . '/front/children/child', ['child_id' => $id, 'date' => $date]);
-        if (!is_array($result) || $result['ok'] == false) {
-            abort(500);
+
+        try {
+            $result = $this->getData(env('TARGET') . '/front/children/child', ['child_id' => $id, 'date' => $date]);
+        } catch (AuthException $e) {
+            return $this->resetAuthAndRedirect();
         }
+
         return view('cabinet.child', $result['data']);
     }
 }

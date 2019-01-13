@@ -11,7 +11,9 @@
             <div class="form-group col-12">
                 <label for="idLogin" class="font-weight-bold">{{ __('Телефон') }}</label>
                 <input type="text" id="idLogin" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}"
-                       name="phone" value="{{ is_array(old('phone')) && in_array(1, old('phone')) ? old('phone') : '38071' }}" placeholder="38071XXXXXXX" required>
+                       name="phone"
+                       value="{{ is_array(old('phone')) && in_array(1, old('phone')) ? old('phone') : '38071' }}"
+                       placeholder="38071XXXXXXX" required>
                 @if ($errors->has('phone'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('phone') }}</strong>
@@ -55,5 +57,13 @@
                 <button type="submit" class="btn btn-primary w-100"> {{ __('Войти') }}</button>
             </div>
         </div>
+
+        @if ($errors->has('error'))
+            <div class="row justify-content-center">
+                <span class="text-danger" role="alert">
+                    <strong>{{ $errors->first('error') }}</strong>
+                </span>
+            </div>
+        @endif
     </form>
 @endsection

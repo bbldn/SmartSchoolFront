@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\AuthException;
 use Illuminate\Http\Request;
 
 class SettingsController extends Controller
@@ -13,18 +14,20 @@ class SettingsController extends Controller
 
     public function indexAction()
     {
-        $result = RequestController::post(env('TARGET') . '/front/settings/index');
-        if ($result == false || $result['ok'] == false) {
-            abort(500);
+        try {
+            $result = $this->getData(env('TARGET') . '/front/settings/index');
+        } catch (AuthException $e) {
+            return $this->resetAuthAndRedirect();
         }
         return view('cabinet.settings', $result['data']);
     }
 
     public function saveAction(Request $request)
     {
-        $result = RequestController::post(env('TARGET') . '/front/settings/save', ['request' => $request->all()]);
-        if ($result == false || $result['ok'] == false) {
-            abort(500);
+        try {
+            $this->getData(env('TARGET') . '/front/settings/save', ['request' => $request->all()]);
+        } catch (AuthException $e) {
+            return $this->resetAuthAndRedirect();
         }
         return redirect(route('index'));
     }

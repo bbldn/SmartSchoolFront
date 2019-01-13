@@ -7,44 +7,103 @@
 
     <title>Кабинет родителя: {{ config('app.name', 'Laravel') }}</title>
 
-    <script type="text/javascript" src="{{asset('/themes/ourtheme/cabinet/js/jquery-3.1.0.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/themes/ourtheme/cabinet/js/jQuery.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('/themes/ourtheme/cabinet/js/popper.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('/themes/ourtheme/cabinet/js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/themes/ourtheme/cabinet/js/accordionLK.js')}}"></script>
 
-    <link rel="stylesheet" type="text/css" href="{{asset('/themes/ourtheme/cabinet/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/themes/ourtheme/cabinet/css/style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/themes/ourtheme/cabinet/css/parentLK.css')}}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('/themes/ourtheme/cabinet/css/bootstrap.min.css')}}"> --}}
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('/themes/ourtheme/cabinet/css/style.css')}}"> --}}
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('/themes/ourtheme/cabinet/css/parentLK.css')}}"> --}}
+
+    <link rel="stylesheet" href="text/css" href="{{asset('/themes/ourtheme/cabinet/css/valeraVersionCss/normalize.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/themes/ourtheme/cabinet/css/valeraVersionCss/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/themes/ourtheme/cabinet/css/valeraVersionCss/header.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/themes/ourtheme/cabinet/css/valeraVersionCss/navbar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/themes/ourtheme/cabinet/css/valeraVersionCss/lkParent.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/themes/ourtheme/cabinet/css/valeraVersionCss/mainStyle.css')}}">
+
 </head>
 
 <body>
 <header>
     <div class="container-fluid h-100">
-        <div class="row h-100 header-row float-right">
-            <a href="{{route('index')}}" style="margin-top: 1px;">Личный кабинет родителя:</a>
-            <a href="{{route('settings')}}">
-                <img style="width: 15px; height: 15px;" src="{{asset('/themes/ourtheme/cabinet/img/settingsLogo.png')}}">
-            </a>
-            <h5 class="mt-1">{{"${parent['surname']} ${parent['name']} ${parent['patronymic']}"}}</h5>
-            <a style="margin-top: 1px;" href="{{route('logout')}}">Выход &nbsp</a>
+        <div class="row row-header h-100">
+
+                <div class="col-7 h-100 col-WithLogo">
+                    <a href="{{route('index')}}" class="w-100"><img src="/themes/ourtheme/cabinet/img/logoSmartSchool.png" class="logMLeft"></a>
+                </div>
+                
+                <div class="col-3 h-100 col-flex">
+                    <div class="wrapperLK">
+                        <a href="#" class="text-white"><p>{{"${parent['surname']} ${parent['name']} ${parent['patronymic']}"}}</p></a>
+                        <img src="img/user.png" class="logo pl-1" alt="">
+                        <a href="{{route('settings')}}">
+                            <img style="width: 15px; height: 15px;" src="{{asset('/themes/ourtheme/cabinet/img/settingsLogo.png')}}">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-2 h-100 cfCenter">
+                    <div class="wrapperLK">
+                        <a href="{{route('logout')}}"><p class="exitWhite">Выход</p></a>
+                    </div>
+                </div>
+
+           {{-- <a href="{{route('index')}}" style="margin-top: 1px;">Личный кабинет родителя:</a>--}}
+           {{-- <a href="{{route('settings')}}">--}}
+           {{--     <img style="width: 15px; height: 15px;" src="{{asset('/themes/ourtheme/cabinet/img/settingsLogo.png')}}">--}}
+           {{-- </a>--}}
+           {{-- <h5 class="mt-1">{{"${parent['surname']} ${parent['name']} ${parent['patronymic']}"}}</h5>--}}
+           {{-- <a style="margin-top: 1px;" href="{{route('logout')}}">Выход &nbsp</a>--}}
+
         </div>
     </div>
 </header>
 
 
-<section>
-    <div class="container-fluid">
-        <div class="row child header-row align-items-center">
-            <li class="text-white">Ваши дети:</li>
-            <ul>
-                @foreach($parent['children'] as $child)
-                    <li class="col-1">
-                        <a href="{{route('child', ['id' => $child['id']])}}">{{"${child['surname']} ${child['name']}"}}</a>
-                    </li>
-                @endforeach
-            </ul>
+        <div class="container-fluid sticky-top my-menu">
+        <div class="row navbarRow align-items-center text-center">
+
+            <nav class="col-12 navbar navbar-expand-md">
+
+                 <a class="navbar-brand" href="">
+                    <p>Ваши дети:</p>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                  <span class="navbar-toggler-icon bg-white"></span>
+                </button>
+
+              <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav justify-content-start">
+                    @foreach($parent['children'] as $child)
+                  <li class="nav-item">
+                    <a class="nav-link flowing-scroll" href="{{route('child', ['id' => $child['id']])}}">{{"${child['surname']} ${child['name']}"}}</a>
+                  </li>
+                        @endforeach       
+                </ul>
+              </div>
+            </nav>
         </div>
     </div>
-</section>
+
+
+{{--<section>--}}
+{{--    <div class="container-fluid">--}}
+{{--        <div class="row child header-row align-items-center">--}}
+{{--            <li class="text-white">Ваши дети:</li>--}}
+{{--            <ul>--}}
+{{--                @foreach($parent['children'] as $child)--}}
+{{--                    <li class="col-1">--}}
+{{--                        <a href="{{route('child', ['id' => $child['id']])}}">{{"${child['surname']} ${child['name']}"}}</a>--}}
+{{--                    </li>--}}
+{{--                @endforeach--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</section>--}}
+
 
 <div class="all-wrapper">
     @yield('content')

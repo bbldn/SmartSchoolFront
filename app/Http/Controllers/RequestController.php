@@ -19,7 +19,7 @@ class RequestController
             $headers['Authorization'] = "Bearer $token";
         }
 
-        $response = Guzzle::post($address, ['form_params' => $data, 'headers' => $token]);
+        $response = Guzzle::post($address, ['form_params' => $data, 'headers' => $headers]);
 
         if ($response->getStatusCode() != 200) {
             return false;
@@ -50,5 +50,13 @@ class RequestController
             return false;
         }
         return json_decode(strval($response->getBody()), true);
+    }
+
+    public static function postForApi($address, $data = [], $headers = [])
+    {
+        $headers['Customer-User-Agent'] = request()->userAgent();
+        $headers['Customer-IP'] = request()->ip();
+        $response = Guzzle::post($address, ['form_params' => $data, 'headers' => $headers]);
+        return $response;
     }
 }

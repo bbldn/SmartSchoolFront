@@ -1,13 +1,21 @@
 <?php
 
 /*Auth*/
-Route::match(['get', 'head'], 'login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
+
+Route::post('login', 'Auth\LoginController@loginFirstStage');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('logout', 'Auth\LoginController@logout');
 
 Route::match(['get', 'head'], 'code', 'Auth\LoginController@showCodeForm')->name('code');
-Route::post('code', 'Auth\LoginController@code');
+Route::post('code', 'Auth\LoginController@loginSecondStage');
+
+
+
+
+Route::prefix('login')->group(function (){
+    Route::match(['get', 'head'], '/', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::match(['get', 'head'], 'back', 'Auth\LoginController@back')->name('back');
+});
 
 //Route::prefix('password')->group(function () {
 //    Route::post('email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
@@ -26,3 +34,7 @@ Route::match(['get', 'post'], '/', 'ChildrenController@indexAction')->name('inde
 Route::match(['get', 'post'], '/child/{id}', 'ChildrenController@childAction')->name('child');
 Route::get('/settings', 'SettingsController@indexAction')->name('settings');
 Route::post('/settings', 'SettingsController@saveAction');
+
+
+Route::post('/front/{slug}', 'FrontController@getFront')->where('slug', '([A-z\d-\/_.]+)?');
+
