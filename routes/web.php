@@ -35,6 +35,8 @@ Route::match(['get', 'post'], '/child/{id}', 'ChildrenController@childAction')->
 Route::get('/settings', 'SettingsController@indexAction')->name('settings');
 Route::post('/settings', 'SettingsController@saveAction');
 
+Route::post('/report', 'ChildrenController@reportAction')->name('report');
+
 
 Route::post('/front/{slug}', 'FrontController@getFront')->where('slug', '([A-z\d-\/_.]+)?');
 

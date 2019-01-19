@@ -35,4 +35,21 @@ class ChildrenController extends Controller
 
         return view('cabinet.child', $result['data']);
     }
+
+    public function reportAction(Request $request)
+    {
+        $data = [
+            'child_id' => $request->get('child_id'),
+            'startDate' => $request->get('startDate'),
+            'finishDate' => $request->get('finishDate')
+        ];
+
+        try {
+            $result = $this->getData(env('TARGET') . '/front/report/child', $data);
+        } catch (AuthException $e) {
+            return $this->resetAuthAndRedirect();
+        }
+
+        return response(base64_decode($result['data']))->header('Content-type', 'application/pdf');
+    }
 }
