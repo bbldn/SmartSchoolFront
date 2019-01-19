@@ -38,6 +38,7 @@ class ChildrenController extends Controller
 
     public function reportAction(Request $request)
     {
+        //1
         $data = [
             'child_id' => $request->get('child_id'),
             'startDate' => $request->get('startDate'),
