@@ -28,6 +28,7 @@
 <body>
 
 <!-- привет Боря -->
+<!-- привет Валера :) -->
 <header>
     <div class="container-fluid h-100">
         <div class="row row-header h-100">
