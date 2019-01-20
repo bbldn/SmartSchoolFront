@@ -13,9 +13,9 @@
                                 <i class="fa fa-database"></i>Управление UID<i class="fa fa-chevron-down"></i>
                             </div>
                             <ul class="submenu">
-                                <li><a href="#">Запросить новый</a></li>
-                                <li><a href="#">Заблокировать UID</a></li>
-                                <li><a href="#">Разблокировать UID</a></li>
+                                <li><a class="show_popup" rel="popup1" href="#">Запросить новый</a></li>
+                                <li><a a class="show_popup" rel="popup2" href="#">Заблокировать UID</a></li>
+                                <li><a class="show_popup" rel="popup3" href="#">Разблокировать UID</a></li>
                             </ul>
                         </li>
                         <li>
