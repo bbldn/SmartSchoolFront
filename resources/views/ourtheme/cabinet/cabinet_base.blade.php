@@ -70,14 +70,14 @@
         <div class="container-fluid sticky-top my-menu">
         <div class="row navbarRow align-items-center text-center">
 
-            <nav class="col-12 navbar navbar-expand-md">
+            <nav class="col-12 navbar navbar-light navbar-expand-md">
 
                  <a class="navbar-brand" href="">
                     <p>Ваши дети:</p>
                 </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                  <span class="navbar-toggler-icon bg-white"></span>
+                  <span class="navbar-toggler-icon"></span>
                 </button>
 
               <div class="collapse navbar-collapse" id="collapsibleNavbar">
