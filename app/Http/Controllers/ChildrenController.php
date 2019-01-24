@@ -49,9 +49,10 @@ class ChildrenController extends Controller
         } catch (AuthException $e) {
             return $this->resetAuthAndRedirect();
         }
-        //header('Content-Disposition: inline; filename="July Report.pdf"');
-        return response(base64_decode($result['data']))
+
+
+        return response(base64_decode($result['data']['report']))
             ->header('Content-type', 'application/pdf')
-            ->header('Content-Disposition', 'inline; filename="ReportTest.pdf"');
+            ->header('Content-Disposition', sprintf('inline; filename="%s.pdf"', $result['data']['title']));
     }
 }
