@@ -50,6 +50,6 @@ class ChildrenController extends Controller
             return $this->resetAuthAndRedirect();
         }
 
-        return response(base64_decode($result['data']))->header('Content-type', 'application/pdf');
+        return response(base64_decode($result['data']))->header('Content-type', 'application/pdf; name=report22');
     }
 }
