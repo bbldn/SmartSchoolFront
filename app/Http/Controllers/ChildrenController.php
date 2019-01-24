@@ -49,7 +49,7 @@ class ChildrenController extends Controller
         } catch (AuthException $e) {
             return $this->resetAuthAndRedirect();
         }
-
+        //comment
         return response(base64_decode($result['data']))->header('Content-type', 'application/pdf');
     }
 }
