@@ -73,9 +73,11 @@
                 </div>
 
                 <div class="row">
-                    <form class="form" method="post" action="{{url()->full()}}">
+                    {{--<form class="form" method="post" action="{{url()->full()}}">--}}
+                    <form class="form" method="POST" id="dateForm">
                         @csrf
                         <div class="form-group jcS">
+                            <input name="child_id" type="hidden" value="{{ $child['id'] }}">
                             <input type="date" name="date" min="1000-01-01" max="3000-12-31"
                                    value="{{$currentDate}}" class="form-control">
                             <div class="separator"></div>
@@ -94,7 +96,7 @@
                             <th scope="col">Направление</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="accessBody">
                         @foreach($child['access'] as $access)
                             <tr>
                                 <th scope="row" class="p-1">{{$access['number']}}</th>

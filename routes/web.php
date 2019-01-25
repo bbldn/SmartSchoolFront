@@ -9,9 +9,6 @@ Route::get('logout', 'Auth\LoginController@logout');
 Route::match(['get', 'head'], 'code', 'Auth\LoginController@showCodeForm')->name('code');
 Route::post('code', 'Auth\LoginController@loginSecondStage');
 
-
-
-
 Route::prefix('login')->group(function (){
     Route::match(['get', 'head'], '/', 'Auth\LoginController@showLoginForm')->name('login');
     Route::match(['get', 'head'], 'back', 'Auth\LoginController@back')->name('back');
@@ -30,6 +27,7 @@ Route::prefix('login')->group(function (){
 
 
 /*Cabinet*/
+
 Route::match(['get', 'post'], '/', 'ChildrenController@indexAction')->name('index');
 Route::match(['get', 'post'], '/child/{id}', 'ChildrenController@childAction')->name('child');
 Route::get('/settings', 'SettingsController@indexAction')->name('settings');
@@ -37,6 +35,11 @@ Route::post('/settings', 'SettingsController@saveAction');
 
 Route::post('/report', 'ChildrenController@reportAction')->name('report');
 
+Route::post('/get-access-by-date', 'ChildrenController@getAccessByDateAction');
+
+
+
+/*Report*/
 
 Route::post('/front/{slug}', 'FrontController@getFront')->where('slug', '([A-z\d-\/_.]+)?');
 

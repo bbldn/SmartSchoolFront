@@ -55,4 +55,20 @@ class ChildrenController extends Controller
             ->header('Content-type', 'application/pdf')
             ->header('Content-Disposition', sprintf('inline; filename="%s.pdf"', $result['data']['title']));
     }
+
+    public function getAccessByDateAction(Request $request)
+    {
+        $data = [
+            'child_id' => $request->get('child_id'),
+            'date' => $request->get('date')
+        ];
+
+        try {
+            $result = $this->getData(env('TARGET') . '/front/children/access-by-date', $data);
+        } catch (AuthException $e) {
+            return $this->resetAuthAndRedirect();
+        }
+
+        return response()->json($result);
+    }
 }
