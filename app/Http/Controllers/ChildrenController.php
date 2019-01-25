@@ -50,10 +50,12 @@ class ChildrenController extends Controller
             return $this->resetAuthAndRedirect();
         }
 
+        $contentDispositionType = ($request->get('save', 'no') == 'yes') ? 'attachment' : 'inline';
+        $contentDisposition = sprintf('%s; filename="%s.pdf"', $contentDispositionType, $result['data']['title']);
 
         return response(base64_decode($result['data']['report']))
             ->header('Content-type', 'application/pdf')
-            ->header('Content-Disposition', sprintf('inline; filename="%s.pdf"', $result['data']['title']));
+            ->header('Content-Disposition', $contentDisposition);
     }
 
     public function getAccessByDateAction(Request $request)

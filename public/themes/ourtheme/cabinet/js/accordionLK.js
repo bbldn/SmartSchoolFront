@@ -22,10 +22,18 @@ $(function () {
     $("#reportForm").submit(function (event) {
         let startDate = new Date(event.target['startDate'].value);
         let finishDate = new Date(event.target['finishDate'].value);
+        let now = new Date();
 
         if (finishDate.getTime() >= startDate.getTime()) {
             return;
         }
+
+        if (finishDate.getTime() > now.getTime()) {
+            alert('Дата конца периода, должна быть меньше или равно текущей дате');
+            event.preventDefault();
+            return;
+        }
+
 
         alert('Дата начала периода, должна быть меньше даты конца периода');
         event.target['startDate'].value = null;

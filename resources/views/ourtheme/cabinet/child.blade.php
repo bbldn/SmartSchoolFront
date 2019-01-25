@@ -28,13 +28,21 @@
                                         @csrf
                                         <input type="hidden" name="child_id" value="{{$child['id']}}">
                                         <div class="form-group">
-                                            <label class="labelNorm">С какой даты</label>
+                                            <label class="labelNorm">Начальная дата</label>
                                             <input type="date" name="startDate" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <label class="labelNorm">По какую дату</label>
+                                            <label class="labelNorm">Конечная дата</label>
                                             <input type="date" name="finishDate" class="form-control" required>
                                         </div>
+
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" value="yes" class="custom-control-input" name="save" id="saveCheckbox">
+                                                <label class="custom-control-label" for="saveCheckbox">Сохранить</label>
+                                            </div>
+                                        </div>
+
                                         <div class="form-group">
                                             <input class="btn btn-primary" type="submit" value="Сформировать">
                                         </div>
