@@ -50,7 +50,7 @@ $(function () {
 
             let accessBody = $('#accessBody');
             accessBody.empty();
-            $('#accessBody').text(date);
+            $('#accessDataIndicator').text(date);
 
             for (let key in result['data']) {
                 let tr = document.createElement('tr');
