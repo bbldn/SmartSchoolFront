@@ -79,7 +79,7 @@
                         <div class="form-group jcS">
                             <input name="child_id" type="hidden" value="{{ $child['id'] }}">
                             <input type="date" name="date" min="1000-01-01" max="3000-12-31"
-                                   value="{{$currentDate}}" class="form-control">
+                                   value="{{ $currentDate }}" class="form-control">
                             <div class="separator"></div>
                             <input type="submit" value="Просмотр" class="form-control btn btn-primary">
                         </div>
@@ -87,7 +87,7 @@
                 </div>
 
                 <div class="row">
-                    <p>Проходы за {{$currentDate}}</p>
+                    <p>Проходы за <span id="accessDataIndicator">{{ $currentDate }}</span></p>
                     <table class="table table-hover">
                         <thead class="thead-dark">
                         <tr>
