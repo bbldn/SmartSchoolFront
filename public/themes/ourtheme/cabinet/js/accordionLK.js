@@ -44,7 +44,7 @@ $(function () {
             method: 'POST',
             data: {_token, child_id, date}
         }).done((result) => {
-            if(result['ok'] != true){
+            if (result['ok'] != true) {
                 return;
             }
 
@@ -57,17 +57,17 @@ $(function () {
 
                 let td = document.createElement('td');
                 td.className = "p-1";
-                td.innerText =  result['data'][key]['number'];
+                td.innerText = result['data'][key]['number'];
                 tr.appendChild(td);
 
                 td = document.createElement('td');
                 td.className = "p-1";
-                td.innerText =  result['data'][key]['time'];
+                td.innerText = result['data'][key]['time'];
                 tr.appendChild(td);
 
                 td = document.createElement('td');
                 td.className = "p-1";
-                td.innerText =  result['data'][key]['direction_word'];
+                td.innerText = result['data'][key]['direction_word'];
                 tr.appendChild(td);
 
                 accessBody.append(tr);
