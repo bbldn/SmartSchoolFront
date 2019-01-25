@@ -14,7 +14,7 @@
                             </div>
                             <ul class="submenu">
                                 <li><a class="show_popup" rel="popup1" href="#">Запросить новый</a></li>
-                                <li><a a class="show_popup" rel="popup2" href="#">Заблокировать UID</a></li>
+                                <li><a class="show_popup" rel="popup2" href="#">Заблокировать UID</a></li>
                                 <li><a class="show_popup" rel="popup3" href="#">Разблокировать UID</a></li>
                             </ul>
                         </li>
@@ -24,7 +24,7 @@
                             </div>
                             <ul class="submenu">
                                 <li>
-                                    <form method="POST" target="_blank" action="{{route('report')}}" >
+                                    <form method="POST" target="_blank" action="{{route('report')}}" id="reportForm">
                                         @csrf
                                         <input type="hidden" name="child_id" value="{{$child['id']}}">
                                         <div class="form-group">
@@ -40,9 +40,6 @@
                                         </div>
                                     </form>
                                 </li>
-                                <!--                      <li><a href="#">Javascript</a></li>
-                                <li><a href="#">jQuery</a></li>
-                                <li><a href="#">Ruby</a></li> -->
                             </ul>
                         </li>
                     </ul>
