@@ -59,8 +59,31 @@
                             </div>
                             <ul class="submenu">
                                 <li><a class="show_popup" rel="popup1" href="#">Запросить новый</a></li>
-                                <li><a class="show_popup" rel="popup2" href="#">Заблокировать UID</a></li>
-                                <li><a class="show_popup" rel="popup3" href="#">Разблокировать UID</a></li>
+                                @if($child['key']['state'] == 1)
+                                    <li>
+                                        <a class="show_popup" rel="popup2" href="#" id="lockLink">
+                                            Заблокировать UID
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="show_popup" rel="popup3" href="#" id="unlockLink"
+                                           style="display: none;">
+                                            Разблокировать UID
+                                        </a>
+                                    </li>
+                                @else
+                                    <li>
+                                        <a class="show_popup" rel="popup2" href="#" id="lockLink"
+                                           style="display: none;">
+                                            Заблокировать UID
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="show_popup" rel="popup3" href="#" id="unlockLink">
+                                            Разблокировать UID
+                                        </a>
+                                    </li>
+                                @endif
                             </ul>
                         </li>
                         <li>
@@ -113,7 +136,9 @@
                     <img src="/themes/ourtheme/cabinet/img/{{$child['id']}}.jpg" class="childPhoto" alt="">
                 </div>
                 <div class="row">
-                    <p>UID: {{$child['key']['short_codekey']}} <span id="UIDStatus">({{$child['key']['state']}})</span></p>
+                    <p>UID: {{$child['key']['short_codekey']}} <span id="UIDStatus">({{$child['key']['stateText']}}
+                            )</span>
+                    </p>
                 </div>
 
                 <div class="row">

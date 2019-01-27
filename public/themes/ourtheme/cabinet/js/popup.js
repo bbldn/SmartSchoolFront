@@ -52,6 +52,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 setTimeout(() => {
                     $('#UIDStatus').text('(не активен)');
                 }, 58000);
+                $('#lockLink').css('display', 'none');
+                $('#unlockLink').css('display', 'block');
             }
         }).fail((jqXHR, textStatus) => {
             console.log(textStatus);
@@ -82,6 +84,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         $(this).fadeOut(400).hide;
                     });
                 }, 3000);
+                $('#lockLink').css('display', 'block');
+                $('#unlockLink').css('display', 'none');
             }
         }).fail((jqXHR, textStatus) => {
             console.log(textStatus);
