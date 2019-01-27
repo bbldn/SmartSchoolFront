@@ -34,15 +34,17 @@
         <div class="row row-header h-100">
 
             <div class="col-7 h-100 col-WithLogo">
-                <a href="{{route('index')}}" class="w-100"><img src="/themes/ourtheme/cabinet/img/logoSmartSchool.png"
-                                                                class="logMLeft"></a>
+                <a href="{{route('index')}}" class="w-100">
+                    <img src="/themes/ourtheme/cabinet/img/logoSmartSchool.png" class="logMLeft">
+                </a>
             </div>
 
             <div class="col-3 h-100 col-flex">
                 <div class="wrapperLK">
                     <a href="#" class="text-white">
-                        <p>{{"${parent['surname']} ${parent['name']} ${parent['patronymic']}"}}</p></a>
-                    <img src="img/user.png" class="logo pl-1" alt="">
+                        <p>{{"${parent['surname']} ${parent['name']} ${parent['patronymic']}"}}</p>
+                    </a>
+                    {{--<img src="img/user.png" class="logo pl-1" alt="">--}}
                     <a href="{{route('settings')}}">
                         <img style="width: 15px; height: 15px;"
                              src="{{asset('/themes/ourtheme/cabinet/img/settingsLogo.png')}}">
@@ -60,26 +62,21 @@
     </div>
 </header>
 
-
 <div class="container-fluid sticky-top my-menu">
     <div class="row navbarRow align-items-center text-center">
-
         <nav class="col-12 navbar navbar-light navbar-expand-md">
-
             <a class="navbar-brand" href="">
                 <p>Ваши дети:</p>
             </a>
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav justify-content-start">
-                    @foreach($parent['children'] as $child)
+                    @foreach($parent['children'] as $value)
                         <li class="nav-item">
                             <a class="nav-link flowing-scroll"
-                               href="{{route('child', ['id' => $child['id']])}}">{{"${child['surname']} ${child['name']}"}}</a>
+                               href="{{route('child', ['id' => $value['id']])}}">{{"${value['surname']} ${value['name']}"}}</a>
                         </li>
                     @endforeach
                 </ul>
@@ -88,9 +85,7 @@
     </div>
 </div>
 
-<div class="row messageRow">
-</div>
-
+<div class="row messageRow"></div>
 <div class="overlay_popup"></div>
 
 <div class="popup" id="popup1">
@@ -110,11 +105,13 @@
 
 <div class="popup" id="popup2">
     <div class="object">
-        <form action="" method="">
+        <form id="formLockUID">
+            @csrf
             <p class="mb-2 text-danger">Заблокировать UID</p>
             <p class="mb-2">для %ИМЯ РЕБЕНКА%</p>
             <p>Примечание: </p>
             <p><textarea rows="3" cols="30" name="message"></textarea></p>
+            <input type="hidden" name="child_id" value="{{$child['id']}}">
             <input type="submit" id="okPP2" class="btn btn-primary" value="Да">
             <input type="button" class="closePP btn btn-primary" value="Отмена">
         </form>
@@ -123,11 +120,13 @@
 
 <div class="popup" id="popup3">
     <div class="object">
-        <form action="" method="">
+        <form id="formUnlockUID">
+            @csrf
             <p class="mb-2 text-success">Разблокировать UID</p>
             <p class="mb-2">для %ИМЯ РЕБЕНКА%</p>
             <p>Примечание: </p>
             <p><textarea rows="3" cols="30" name="message"></textarea></p>
+            <input type="hidden" name="child_id" value="{{$child['id']}}">
             <input type="submit" id="okPP3" class="btn btn-primary" value="Да">
             <input type="button" class="closePP btn btn-primary" value="Отмена">
         </form>

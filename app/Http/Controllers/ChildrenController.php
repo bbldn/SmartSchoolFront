@@ -25,6 +25,7 @@ class ChildrenController extends Controller
 
     public function childAction(Request $request, $id)
     {
+
         $date = $request->get('date', date('Y-m-d'));
 
         try {
@@ -67,6 +68,36 @@ class ChildrenController extends Controller
 
         try {
             $result = $this->getData(env('TARGET') . '/front/children/access-by-date', $data);
+        } catch (AuthException $e) {
+            return $this->resetAuthAndRedirect();
+        }
+
+        return response()->json($result);
+    }
+
+    public function lockKeyAction(Request $request)
+    {
+        $data = [
+            'child_id' => $request->get('child_id'),
+        ];
+
+        try {
+            $result = $this->getData(env('TARGET') . '/front/key/lock', $data);
+        } catch (AuthException $e) {
+            return $this->resetAuthAndRedirect();
+        }
+
+        return response()->json($result);
+    }
+
+    public function unlockKeyAction(Request $request)
+    {
+        $data = [
+            'child_id' => $request->get('child_id'),
+        ];
+
+        try {
+            $result = $this->getData(env('TARGET') . '/front/key/unlock', $data);
         } catch (AuthException $e) {
             return $this->resetAuthAndRedirect();
         }

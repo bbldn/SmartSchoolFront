@@ -24,20 +24,20 @@ $(function () {
         let finishDate = new Date(event.target['finishDate'].value);
         let now = new Date();
 
-        if (finishDate.getTime() >= startDate.getTime()) {
-            return;
-        }
-
         if (finishDate.getTime() > now.getTime()) {
             alert('Дата конца периода, должна быть меньше или равно текущей дате');
+            event.target['finishDate'].value = now.toISOString().substr(0, 10);
             event.preventDefault();
             return;
         }
 
+        if (finishDate.getTime() >= startDate.getTime()) {
+            alert('Дата начала периода, должна быть меньше даты конца периода');
+            event.target['startDate'].value = null;
+            event.target['finishDate'].value = null;
+            return;
+        }
 
-        alert('Дата начала периода, должна быть меньше даты конца периода');
-        event.target['startDate'].value = null;
-        event.target['finishDate'].value = null;
         event.preventDefault();
     });
 
@@ -89,4 +89,5 @@ $(function () {
 
 
     var accordion = new Accordion($('#accordion'), false);
+
 });

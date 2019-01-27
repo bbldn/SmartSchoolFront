@@ -9,7 +9,7 @@ Route::get('logout', 'Auth\LoginController@logout');
 Route::match(['get', 'head'], 'code', 'Auth\LoginController@showCodeForm')->name('code');
 Route::post('code', 'Auth\LoginController@loginSecondStage');
 
-Route::prefix('login')->group(function (){
+Route::prefix('login')->group(function () {
     Route::match(['get', 'head'], '/', 'Auth\LoginController@showLoginForm')->name('login');
     Route::match(['get', 'head'], 'back', 'Auth\LoginController@back')->name('back');
 });
@@ -25,7 +25,6 @@ Route::prefix('login')->group(function (){
 //Route::post('register', 'Auth\RegisterController@register');
 
 
-
 /*Cabinet*/
 
 Route::match(['get', 'post'], '/', 'ChildrenController@indexAction')->name('index');
@@ -38,6 +37,10 @@ Route::post('/report', 'ChildrenController@reportAction')->name('report');
 Route::post('/get-access-by-date', 'ChildrenController@getAccessByDateAction');
 
 
+Route::prefix('key')->group(function () {
+    Route::post('lock', 'ChildrenController@lockKeyAction');
+    Route::post('unlock', 'ChildrenController@unlockKeyAction');
+});
 
 /*Report*/
 

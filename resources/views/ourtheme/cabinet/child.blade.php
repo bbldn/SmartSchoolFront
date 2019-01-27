@@ -38,7 +38,8 @@
 
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" value="yes" class="custom-control-input" name="save" id="saveCheckbox">
+                                                <input type="checkbox" value="yes" class="custom-control-input"
+                                                       name="save" id="saveCheckbox">
                                                 <label class="custom-control-label" for="saveCheckbox">Сохранить</label>
                                             </div>
                                         </div>
@@ -66,6 +67,9 @@
                 <div class="row">
                     <img src="/themes/ourtheme/cabinet/img/{{$child['id']}}.jpg" class="childPhoto" alt="">
                 </div>
+                <div class="row">
+                    <p>UID: {{$child['key']['short_codekey']}} <span id="UIDStatus">({{$child['key']['state']}})</span></p>
+                </div>
 
                 <div class="row">
                     <p>Учебное заведение: {{$child['school']['name']}}</p>
@@ -76,8 +80,7 @@
                 </div>
 
                 <div class="row">
-                    <p>Текущий
-                        статус: {{ $child['status'] }}</p>
+                    <p>Текущий статус: {{ $child['status'] }}</p>
                 </div>
 
                 <div class="row">
@@ -115,8 +118,6 @@
                         </tbody>
                     </table>
                 </div>
-
-
             </div>
         </div>
 
