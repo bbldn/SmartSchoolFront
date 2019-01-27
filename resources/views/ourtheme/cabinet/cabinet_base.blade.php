@@ -105,7 +105,7 @@
 
 <div class="popup" id="popup2">
     <div class="object">
-        <form id="formLockUID">
+        <form method="POST" id="formLockUID">
             @csrf
             <p class="mb-2 text-danger">Заблокировать UID</p>
             <p class="mb-2">для %ИМЯ РЕБЕНКА%</p>
@@ -120,7 +120,7 @@
 
 <div class="popup" id="popup3">
     <div class="object">
-        <form id="formUnlockUID">
+        <form method="POST" id="formUnlockUID">
             @csrf
             <p class="mb-2 text-success">Разблокировать UID</p>
             <p class="mb-2">для %ИМЯ РЕБЕНКА%</p>
