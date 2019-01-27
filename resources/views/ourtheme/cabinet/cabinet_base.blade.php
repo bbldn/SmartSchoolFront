@@ -88,51 +88,6 @@
 <div class="row messageRow"></div>
 <div class="overlay_popup"></div>
 
-<div class="popup" id="popup1">
-    <div class="object">
-        <form action="" method="">
-            <p class="mb-2 text-primary">Запросить новый ID</p>
-            <p class="mb-2">для
-                %ИМЯ РЕБЕНКА%
-            </p>
-            <p>Примечание: </p>
-            <p><textarea rows="3" cols="30" name="message"></textarea></p>
-            <input type="submit" id="okPP1" class="btn btn-primary" value="Да">
-            <input type="button" class="closePP btn btn-primary" value="Отмена">
-        </form>
-    </div>
-</div>
-
-<div class="popup" id="popup2">
-    <div class="object">
-        <form method="POST" id="formLockUID">
-            @csrf
-            <p class="mb-2 text-danger">Заблокировать UID</p>
-            <p class="mb-2">для %ИМЯ РЕБЕНКА%</p>
-            <p>Примечание: </p>
-            <p><textarea rows="3" cols="30" name="message"></textarea></p>
-            <input type="hidden" name="child_id" value="{{$child['id']}}">
-            <input type="submit" id="okPP2" class="btn btn-primary" value="Да">
-            <input type="button" class="closePP btn btn-primary" value="Отмена">
-        </form>
-    </div>
-</div>
-
-<div class="popup" id="popup3">
-    <div class="object">
-        <form method="POST" id="formUnlockUID">
-            @csrf
-            <p class="mb-2 text-success">Разблокировать UID</p>
-            <p class="mb-2">для %ИМЯ РЕБЕНКА%</p>
-            <p>Примечание: </p>
-            <p><textarea rows="3" cols="30" name="message"></textarea></p>
-            <input type="hidden" name="child_id" value="{{$child['id']}}">
-            <input type="submit" id="okPP3" class="btn btn-primary" value="Да">
-            <input type="button" class="closePP btn btn-primary" value="Отмена">
-        </form>
-    </div>
-</div>
-
 <div class="all-wrapper">
     @yield('content')
 </div>
