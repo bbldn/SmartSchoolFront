@@ -31,14 +31,13 @@ $(function () {
             return;
         }
 
-        if (finishDate.getTime() >= startDate.getTime()) {
+        if (finishDate.getTime() < startDate.getTime()) {
             alert('Дата начала периода, должна быть меньше даты конца периода');
             event.target['startDate'].value = null;
             event.target['finishDate'].value = null;
+            event.preventDefault();
             return;
         }
-
-        event.preventDefault();
     });
 
 
