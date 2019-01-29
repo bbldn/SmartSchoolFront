@@ -55,7 +55,8 @@ class ChildrenController extends Controller
         }
 
         $contentDispositionType = ($request->get('save', 'no') == 'yes') ? 'attachment' : 'inline';
-        $contentDisposition = sprintf('%s; filename="%s.pdf"', $contentDispositionType, $result['data']['title']);
+//        $contentDisposition = sprintf('%s; filename="%s.pdf"', $contentDispositionType, $result['data']['title']);
+        $contentDisposition = sprintf('attachment; filename="%s.pdf"', $result['data']['title']);
 
         return response(base64_decode($result['data']['report']))
             ->header('Content-type', 'application/pdf')

@@ -102,13 +102,13 @@
                                             <input type="date" name="finishDate" class="form-control" required>
                                         </div>
 
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" value="yes" class="custom-control-input"
-                                                       name="save" id="saveCheckbox">
-                                                <label class="custom-control-label" for="saveCheckbox">Сохранить</label>
-                                            </div>
-                                        </div>
+                                        {{--<div class="form-group">--}}
+                                            {{--<div class="custom-control custom-checkbox">--}}
+                                                {{--<input type="checkbox" value="yes" class="custom-control-input"--}}
+                                                       {{--name="save" id="saveCheckbox">--}}
+                                                {{--<label class="custom-control-label" for="saveCheckbox">Сохранить</label>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
 
                                         <div class="form-group">
                                             <input class="btn btn-primary" type="submit" value="Сформировать">
