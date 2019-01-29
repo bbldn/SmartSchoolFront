@@ -20,13 +20,12 @@
         <div class="object">
             <form method="POST" id="formLockUID">
                 @csrf
-                <p class="mb-2 text-danger">Заблокировать UID</p>
-                <p class="mb-2">для %ИМЯ РЕБЕНКА%</p>
+                <p class="mb-2 text-success">Вы действительно хотите заблокировать пропуск {{$child['key']['short_codekey']}}?</p>
                 <p>Примечание: </p>
                 <p><textarea rows="3" cols="30" name="message"></textarea></p>
                 <input type="hidden" name="child_id" value="{{$child['id']}}">
                 <input type="submit" id="okPP2" class="btn btn-primary" value="Да">
-                <input type="button" class="closePP btn btn-primary" value="Отмена">
+                <input type="button" class="closePP btn btn-primary" value="Нет">
             </form>
         </div>
     </div>
@@ -35,13 +34,12 @@
         <div class="object">
             <form method="POST" id="formUnlockUID">
                 @csrf
-                <p class="mb-2 text-success">Разблокировать UID</p>
-                <p class="mb-2">для %ИМЯ РЕБЕНКА%</p>
+                <p class="mb-2 text-success">Вы действительно хотите разблокировать пропуск {{$child['key']['short_codekey']}}?</p>
                 <p>Примечание: </p>
                 <p><textarea rows="3" cols="30" name="message"></textarea></p>
                 <input type="hidden" name="child_id" value="{{$child['id']}}">
                 <input type="submit" id="okPP3" class="btn btn-primary" value="Да">
-                <input type="button" class="closePP btn btn-primary" value="Отмена">
+                <input type="button" class="closePP btn btn-primary" value="Нет">
             </form>
         </div>
     </div>
