@@ -95,7 +95,7 @@
                                         <input type="hidden" name="child_id" value="{{$child['id']}}">
                                         <div class="form-group">
                                             <label class="labelNorm">Начальная дата</label>
-                                            <input type="date" name="й startDate" class="form-control" required>
+                                            <input type="date" name="startDate" class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label class="labelNorm">Конечная дата</label>
