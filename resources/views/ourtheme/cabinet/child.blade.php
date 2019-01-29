@@ -137,7 +137,7 @@
                 </div>
 
                 <div class="row">
-                    <p>ФИО: {{$child['surname'] + " " + $child['name'] + " " + $child['patronymic']}}</p>
+                    <p>ФИО: {{$child['surname'] . " " . $child['name'] . " " . $child['patronymic']}}</p>
                 </div>
 
                 <div class="row">
