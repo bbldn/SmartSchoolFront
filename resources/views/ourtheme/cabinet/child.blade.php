@@ -55,32 +55,32 @@
                     <ul id="accordion" class="accordion">
                         <li>
                             <div class="link">
-                                <i class="fa fa-database"></i>Управление UID<i class="fa fa-chevron-down"></i>
+                                <i class="fa fa-database"></i>Управление пропусками<i class="fa fa-chevron-down"></i>
                             </div>
                             <ul class="submenu">
-                                <li><a class="show_popup" rel="popup1" href="#">Запросить новый</a></li>
+                                {{--<li><a class="show_popup" rel="popup1" href="#">Запросить новый</a></li>--}}
                                 @if($child['key']['state'] == 1)
                                     <li>
                                         <a class="show_popup" rel="popup2" href="#" id="lockLink">
-                                            Заблокировать UID
+                                            Заблокировать пропуск
                                         </a>
                                     </li>
                                     <li>
                                         <a class="show_popup" rel="popup3" href="#" id="unlockLink"
                                            style="display: none;">
-                                            Разблокировать UID
+                                            Разблокировать пропуск
                                         </a>
                                     </li>
                                 @else
                                     <li>
                                         <a class="show_popup" rel="popup2" href="#" id="lockLink"
                                            style="display: none;">
-                                            Заблокировать UID
+                                            Заблокировать пропуск
                                         </a>
                                     </li>
                                     <li>
                                         <a class="show_popup" rel="popup3" href="#" id="unlockLink">
-                                            Разблокировать UID
+                                            Разблокировать пропуск
                                         </a>
                                     </li>
                                 @endif
@@ -97,7 +97,7 @@
                                         <input type="hidden" name="child_id" value="{{$child['id']}}">
                                         <div class="form-group">
                                             <label class="labelNorm">Начальная дата</label>
-                                            <input type="date" name="startDate" class="form-control" required>
+                                            <input type="date" name="й startDate" class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label class="labelNorm">Конечная дата</label>
@@ -135,8 +135,13 @@
                 <div class="row">
                     <img src="/themes/ourtheme/cabinet/img/{{$child['id']}}.jpg" class="childPhoto" alt="">
                 </div>
+
                 <div class="row">
-                    <p>UID: {{$child['key']['short_codekey']}} <span id="UIDStatus">({{$child['key']['stateText']}}
+                    <p>ФИО: {{$child['surname'] + " " + $child['name'] + " " + $child['patronymic']}}</p>
+                </div>
+
+                <div class="row">
+                    <p>Номер пропуска: {{$child['key']['short_codekey']}} <span id="UIDStatus">({{$child['key']['stateText']}}
                             )</span>
                     </p>
                 </div>
@@ -150,7 +155,7 @@
                 </div>
 
                 <div class="row">
-                    <p>Текущий статус: {{ $child['status'] }}</p>
+                    <p>Текущий статус учащегося: {{ $child['status'] }}</p>
                 </div>
 
                 <div class="row">

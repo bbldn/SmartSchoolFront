@@ -49,9 +49,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         $(this).fadeOut(400).hide;
                     });
                 }, 3000);
-                setTimeout(() => {
-                    $('#UIDStatus').text('(не активен)');
-                }, 58000);
+                $('#UIDStatus').text('(не активен)');
                 $('#lockLink').css('display', 'none');
                 $('#unlockLink').css('display', 'block');
             }
