@@ -143,9 +143,9 @@
                 <div class="row">
                     <p>
                         Номер пропуска: {{$child['key']['short_codekey']}},
-                        <span id="UIDStatus"
+                        <strong id="UIDStatus"
                               class="{{($child['key']['state'] == 0) ? 'text-danger': 'text-success'}}">({{$child['key']['stateText']}})
-                        </span>
+                        </strong>
                     </p>
                 </div>
 
