@@ -34,7 +34,7 @@ class ChildrenController extends Controller
             return $this->resetAuthAndRedirect();
         }
 
-        $states = [0 => 'не активен', 1 => 'активен'];
+        $states = [0 => 'ЗАБЛОКИРОВАН', 1 => 'АКТИВНЫЙ'];
         $result['data']['child']['key']['stateText'] = $states[$result['data']['child']['key']['state']];
 
         return view('cabinet.child', $result['data']);

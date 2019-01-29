@@ -129,7 +129,7 @@
         <div class="row col-12 col-md-9 noM cl2">
             <div class="container-fluid">
                 <div class="row">
-                    <h4>Информация по ребёнку: {{$child['surname']}} {{$child['name']}}</h4>
+                    <h4>Информация по ребёнку:</h4>
                 </div>
 
                 <div class="row">
@@ -141,8 +141,11 @@
                 </div>
 
                 <div class="row">
-                    <p>Номер пропуска: {{$child['key']['short_codekey']}} <span id="UIDStatus">({{$child['key']['stateText']}}
-                            )</span>
+                    <p>
+                        Номер пропуска: {{$child['key']['short_codekey']}},
+                        <span id="UIDStatus"
+                              class="{{($child['key']['state'] == 0) ? 'text-danger': 'text-success'}}">({{$child['key']['stateText']}})
+                        </span>
                     </p>
                 </div>
 

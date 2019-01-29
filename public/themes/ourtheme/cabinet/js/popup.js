@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             if (result['ok'] != true) {
                 alert(result['errors'][0]);
             } else {
-                $('#UIDStatus').text('(будет заблокирован через 1 минуту)');
                 $('.overlay_popup, .popup').hide();
                 $('.messageRow').fadeOut(500, function () {
                     $(this).html('<p class="text-center bg-danger">UID заблокирован<p>').fadeIn(500);
@@ -49,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         $(this).fadeOut(400).hide;
                     });
                 }, 3000);
-                $('#UIDStatus').text('(не активен)');
+                $('#UIDStatus').text('(ЗАБЛОКИРОВАН)').removeClass('text-success').addClass('text-danger');
                 $('#lockLink').css('display', 'none');
                 $('#unlockLink').css('display', 'block');
             }
@@ -72,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             if (result['ok'] != true) {
                 alert(result['errors'][0]);
             } else {
-                $('#UIDStatus').text('(активен)');
+
                 $('.overlay_popup, .popup').hide();
                 $('.messageRow').fadeOut(500, function () {
                     $(this).html('<p class="text-center bg-success">UID разблокирован<p>').fadeIn(500);
@@ -84,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }, 3000);
                 $('#lockLink').css('display', 'block');
                 $('#unlockLink').css('display', 'none');
+                $('#UIDStatus').text('(АКТИВНЫЙ)').removeClass('text-danger').addClass('text-success');
             }
         }).fail((jqXHR, textStatus) => {
             console.log(textStatus);
