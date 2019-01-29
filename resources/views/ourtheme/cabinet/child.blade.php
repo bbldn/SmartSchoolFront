@@ -20,7 +20,7 @@
         <div class="object">
             <form method="POST" id="formLockUID">
                 @csrf
-                <p class="mb-2 text-success">Вы действительно хотите заблокировать пропуск {{$child['key']['short_codekey']}}?</p>
+                <p class="mb-2 text-danger">Вы действительно хотите ЗАБЛОКИРОВАТЬ пропуск {{$child['key']['short_codekey']}}?</p>
                 <p>Примечание: </p>
                 <p><textarea rows="3" cols="30" name="message"></textarea></p>
                 <input type="hidden" name="child_id" value="{{$child['id']}}">
@@ -34,7 +34,7 @@
         <div class="object">
             <form method="POST" id="formUnlockUID">
                 @csrf
-                <p class="mb-2 text-success">Вы действительно хотите разблокировать пропуск {{$child['key']['short_codekey']}}?</p>
+                <p class="mb-2 text-success">Вы действительно хотите РАЗБЛОКИРОВАТЬ пропуск {{$child['key']['short_codekey']}}?</p>
                 <p>Примечание: </p>
                 <p><textarea rows="3" cols="30" name="message"></textarea></p>
                 <input type="hidden" name="child_id" value="{{$child['id']}}">
