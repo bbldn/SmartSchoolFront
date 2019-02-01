@@ -148,11 +148,11 @@
                 </div>
 
                 <div class="row">
-                    <p>Учебное заведение: {{$child['schoolClass']['school']['name']}}</p>
+                    <p>Учебное заведение: {{$child['school_class']['school']['name']}}</p>
                 </div>
 
                 <div class="row">
-                    <p>Класс: {{$child['schoolClass']['name']}}</p>
+                    <p>Класс: {{$child['school_class']['name']}}</p>
                 </div>
 
                 <div class="row">
