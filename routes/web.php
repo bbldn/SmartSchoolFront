@@ -31,8 +31,14 @@ Route::prefix('key')->group(function () {
     Route::post('unlock', 'ChildrenController@unlockKeyAction');
 });
 
-/*API1*/
-Route::post('/auth/{slug}', 'FrontController@getFront')->where('slug', '([A-z\d-\/_.]+)?');
-Route::post('/front/{slug}', 'FrontController@getFront')->where('slug', '([A-z\d-\/_.]+)?');
+/*API*/
+Route::post('/auth/{slug}', 'FrontController@getFront')->where('slug', '([A-z-\/_.]+)?');
+Route::post('/front/{slug}', 'FrontController@getFront')->where('slug', '([A-z-\/_.]+)?');
+//Route::post('/auth/{slug}', 'FrontController@getFront')->where('slug', '([A-z\d-\/_.]+)?');
+//Route::post('/front/{slug}', 'FrontController@getFront')->where('slug', '([A-z\d-\/_.]+)?');
+
+//Route::prefix('auth')->group(function () {
+//    Route::post('{slug}', 'FrontController@getFront')->where('slug', '([A-z-\/_.]+)?');
+//});
 
 
