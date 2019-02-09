@@ -37,8 +37,3 @@ Route::post('/front/{slug}', 'FrontController@getFront')->where('slug', '([A-z-\
 //Route::post('/auth/{slug}', 'FrontController@getFront')->where('slug', '([A-z\d-\/_.]+)?');
 //Route::post('/front/{slug}', 'FrontController@getFront')->where('slug', '([A-z\d-\/_.]+)?');
 
-//Route::prefix('auth')->group(function () {
-//    Route::post('{slug}', 'FrontController@getFront')->where('slug', '([A-z-\/_.]+)?');
-//});
-
-

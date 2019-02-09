@@ -19,7 +19,7 @@ class FrontController extends Controller
     {
         $headers = [];
         foreach ($request->headers->all() as $key => $value) {
-            if (substr($key, 0, 2) == "U-") {
+            if (substr($key, 0, 2) == "u-") {
                 $key = substr($key, 2, strlen($key) - 2);
                 $headers[$key] = $value;
             }
