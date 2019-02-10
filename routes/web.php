@@ -21,6 +21,14 @@ Route::match(['get', 'post'], '/child/{id}', 'ChildrenController@childAction')->
 Route::get('/settings', 'SettingsController@indexAction')->name('settings');
 Route::post('/settings', 'SettingsController@saveAction');
 
+
+Route::prefix('additional-parents')->group(function () {
+    Route::match(['get', 'post'], '/', 'AdditionalParentController@additionalParentAction')->name('additional-parents');
+    Route::get('add', 'AdditionalParentController@showAddAction')->name('additional-parents-add');
+    Route::post('add', 'AdditionalParentController@addNewAdditionalParentAction');
+});
+
+
 /*Report*/
 Route::post('/report', 'ChildrenController@reportAction')->name('report');
 Route::post('/get-access-by-date', 'ChildrenController@getAccessByDateAction');

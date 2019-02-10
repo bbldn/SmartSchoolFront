@@ -1,15 +1,31 @@
 @extends('cabinet.cabinet_base')
 
 @section('content')
-    <div class="container">
-        <form class="w-25" method="post" action="{{route('settings')}}">
+    <div class="container text-center">
+        <a href="{{ route('additional-parents') }}" class="btn btn-success">Дополнительные родители</a>
+        <form method="post" action="{{route('settings')}}" class="text-center">
             @csrf
-            <div class="form-control">
-                <label>Уведомлять о проходе</label>
-                <input type="checkbox" name="notification_of_access"
-                       value="1" {{($setting['notification_of_access'] == 1) ? 'checked' : '' }}>
-            </div>
-            <input type="submit" value="Сохранить">
+            <table class="table h3">
+                <tr>
+                    <td>Уведомлять о проходе по СМС</td>
+                    <td>
+                        <input type="checkbox" class="form-check-input checkbox-1x" name="notification_of_access" value="1" {{ ($setting['notification_of_access'] == 1) ? 'checked' : '' }}>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Уведомлять о проходе в Telegram</td>
+                    <td>
+                        <input type="checkbox" class="form-check-input checkbox-1x" name="notification_of_access_telegram" value="1" {{ ($setting['notification_of_access_telegram'] == 1) ? 'checked' : '' }}>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ChatId Telegram</td>
+                    <td>
+                        <input type="text" name="telegram_chat_id" value="{{ $setting['telegram_chat_id'] }}">
+                    </td>
+                </tr>
+            </table>
+            <input class="" type="submit" value="Сохранить">
         </form>
     </div>
 @endsection

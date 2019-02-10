@@ -13,17 +13,17 @@
     <script type="text/javascript" src="{{asset('/themes/ourtheme/cabinet/js/accordionLK.js')}}"></script>
     <script type="text/javascript" src="{{asset('/themes/ourtheme/cabinet/js/popup.js')}}"></script>
 
+    {{--<link rel="stylesheet" type="text/css"--}}
+          {{--href="{{asset('/themes/ourtheme/cabinet/css/valeraVersionCss/normalize.css')}}">--}}
     <link rel="stylesheet" type="text/css"
-          href="{{asset('/themes/ourtheme/cabinet/css/valeraVersionCss/normalize.css')}}">
+          href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/header.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/navbar.css') }}">
     <link rel="stylesheet" type="text/css"
-          href="{{asset('/themes/ourtheme/cabinet/css/valeraVersionCss/bootstrap.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/themes/ourtheme/cabinet/css/valeraVersionCss/header.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/themes/ourtheme/cabinet/css/valeraVersionCss/navbar.css')}}">
+          href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/lkParent.css') }}">
     <link rel="stylesheet" type="text/css"
-          href="{{asset('/themes/ourtheme/cabinet/css/valeraVersionCss/lkParent.css')}}">
-    <link rel="stylesheet" type="text/css"
-          href="{{asset('/themes/ourtheme/cabinet/css/valeraVersionCss/mainStyle.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/themes/ourtheme/cabinet/css/valeraVersionCss/popup.css')}}">
+          href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/mainStyle.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/popup.css') }}">
 
 </head>
 
@@ -35,7 +35,7 @@
 
             <div class="col-7 h-100 col-WithLogo">
                 <a href="{{route('index')}}" class="w-100">
-                    <img src="/themes/ourtheme/cabinet/img/logoSmartSchool.png" class="logMLeft">
+                    <img src="{{ asset("/themes/ourtheme/cabinet/img/logoSmartSchool.png") }}" class="logMLeft">
                 </a>
             </div>
 
