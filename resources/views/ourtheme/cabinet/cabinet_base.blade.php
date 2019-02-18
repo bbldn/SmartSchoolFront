@@ -25,6 +25,8 @@
           href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/mainStyle.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/popup.css') }}">
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/settings.css') }}">
+
 </head>
 
 <body>

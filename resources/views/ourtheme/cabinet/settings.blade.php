@@ -2,10 +2,11 @@
 
 @section('content')
     <div class="container text-center">
-        <a href="{{ route('additional-parents') }}" class="btn btn-success">Дополнительные родители</a>
+        <a href="{{ route('additional-parents') }}" class="btn btn-primary">Дополнительные родители</a>
+        <hr>
         <form method="post" action="{{route('settings')}}" class="text-center">
             @csrf
-            <table class="table h3">
+            <table class="table">
                 <tr>
                     <td>Уведомлять о проходе по СМС</td>
                     <td>

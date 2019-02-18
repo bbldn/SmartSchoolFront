@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <h1>
                 Дополнительные родители
-                <a href="{{ route('additional-parents-add') }}" class="btn btn-success">Добавить</a>
+                <a href="{{ route('additional-parents-add') }}" class="btn btn-primary">Добавить</a>
             </h1>
         </div>
 
