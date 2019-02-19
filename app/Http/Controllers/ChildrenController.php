@@ -48,6 +48,10 @@ class ChildrenController extends Controller
             return $this->resetAuthAndRedirect();
         }
 
+        if ($result['ok'] == false) {
+            abort($result['code']);
+        }
+
         $states = [0 => 'ЗАБЛОКИРОВАН', 1 => 'АКТИВНЫЙ'];
         $result['data']['child']['key']['stateText'] = $states[$result['data']['child']['key']['state']];
 
