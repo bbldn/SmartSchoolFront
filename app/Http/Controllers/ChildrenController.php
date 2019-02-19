@@ -12,6 +12,16 @@ class ChildrenController extends Controller
         $this->middleware('auth');
     }
 
+    public function actionAction()
+    {
+        try {
+            $result = $this->getData(env('TARGET') . '/front/settings/index');
+        } catch (AuthException $e) {
+            return $this->resetAuthAndRedirect();
+        }
+        return view('cabinet.actions', $result['data']);
+    }
+
     public function indexAction()
     {
         try {

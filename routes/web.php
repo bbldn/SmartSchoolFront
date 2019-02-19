@@ -21,6 +21,7 @@ Route::match(['get', 'post'], 'checkpoint', 'ChildrenController@indexAction')->n
 Route::match(['get', 'post'], 'child/{id}', 'ChildrenController@childAction')->name('child');
 Route::get('settings', 'SettingsController@indexAction')->name('settings');
 Route::post('settings', 'SettingsController@saveAction');
+Route::get('actions', 'ChildrenController@actionAction')->name('actions');
 
 
 Route::prefix('additional-parents')->group(function () {

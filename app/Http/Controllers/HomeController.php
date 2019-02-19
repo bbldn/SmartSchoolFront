@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 
+use App\Exceptions\AuthException;
+
 class HomeController extends Controller
 {
     public function __construct()
@@ -12,6 +14,11 @@ class HomeController extends Controller
 
     public function indexAction()
     {
-        return view('cabinet.select');
+        try {
+            $result = $this->getData(env('TARGET') . '/front/settings/index');
+        } catch (AuthException $e) {
+            return $this->resetAuthAndRedirect();
+        }
+        return view('cabinet.select', $result['data']);
     }
 }
