@@ -1,0 +1,44 @@
+.all-wrapper .container {
+	/*font-size: 24px;*/
+	background: white;
+	padding: 10px;
+	border: 1px solid black;
+    box-shadow: 0 20px 10px rgba(0,0,0,0.5);
+}
+
+.container hr {
+	border: 2px solid black;
+}
+
+.table tr td {
+	border-bottom: 1px solid gray;
+}
+
+input[type="submit"] {
+	font-size: .8em;
+	margin: 5px auto;
+}
+
+@media only screen and (max-width: 770px) {
+	.all-wrapper .container {
+		font-size: .9em;
+	}
+}
+
+@media only screen and (max-width: 470px) {
+	.all-wrapper .container {
+		font-size: .8em;
+	}
+}
+
+@media only screen and (max-width: 420px) {
+	.all-wrapper .container {
+		font-size: .7em;
+	}
+}
+
+@media only screen and (max-width: 370px) {
+	.all-wrapper .container {
+		font-size: .6em;
+	}
+}

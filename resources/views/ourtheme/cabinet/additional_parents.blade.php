@@ -1,11 +1,16 @@
 @extends('cabinet.cabinet_base')
 
+@section('links')
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/additional.css') }}">
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <h1>
+            <h3>
                 Дополнительные родители (представителя)
-            </h1>
+            </h3>
         </div>
 
         <div class="row justify-content-center">
@@ -23,7 +28,8 @@
                         <td>{{ $aparent['user']['phone'] }}</td>
                         <td>{{ $aparent['surname'] . " " . $aparent['name'] . " " . $aparent['patronymic'] }}</td>
                         <td>
-                            <a href="#">Редактировать</a>
+                            <a href="{{ route('additional-parents-edit', ['id' => $aparent['id']]) }}">Редактировать</a>
+                            <a href="#">Удалить</a>
                         </td>
                     </tr>
                 @endforeach

@@ -30,7 +30,7 @@
                         </tr>
                         <tr>
                             <td>
-                                E-mail
+                                *E-mail
                                 @if ($errors->has('email'))
                                     <br><strong class="text-danger">{{ $errors->first('email') }}</strong>
                                 @endif
