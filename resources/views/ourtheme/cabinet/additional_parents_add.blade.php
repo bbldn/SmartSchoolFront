@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid content">
         <div class="row justify-content-center">
-            <h1>Добавление родителя</h1>
+            <h1>Добавление родителя (представителя)</h1>
         </div>
 
         <div class="row justify-content-center text-center">
@@ -37,7 +37,7 @@
                             </td>
                             <td>
                                 <input type="text" name="email" placeholder="user@mail.com" value="{{ old('email') }}"
-                                       class="text-dark">
+                                       class="text-dark" required>
                             </td>
                         </tr>
                         <tr>
@@ -89,7 +89,7 @@
                             <br><strong class="text-danger">{{ $errors->first('is_valid') }}</strong>
                         @endif
                     </div>
-                    <p class="h1">Список детей информацио о которых сможет видеть родитель:</p>
+                    <p class="h1">Пожалуйста, укажите добавленному родителю(представителю) ребенка(детей) информацию о котором(которых) ему разрешено получать:</p>
                     <table class="table table-hover table-striped">
                         <thead>
                         <tr>

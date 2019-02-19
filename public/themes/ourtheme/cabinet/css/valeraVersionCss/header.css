@@ -20,7 +20,36 @@ header {
 	height: 100%;
  	align-items: center;
 	color: white;
+    width: 350px;
+    justify-content: center;
 }
+
+.dropdownmenu-wrapper {
+    width: inherit;
+    position: absolute;
+    top: 70px;
+    z-index: 999;
+    text-align: center;
+    display: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.dropdownmenu-item {
+    background: #dbdbdb;
+    border-left: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+}
+
+.dropdownmenu-item:last-child {
+    border-radius: 0 0 10px 10px;
+    border-bottom: black 1px solid;
+}
+
+.dropdownmenu-title:hover {
+    text-decoration: underline;
+}
+
 
 .wrapperPhoneMail {
 	width: 100%;
@@ -41,16 +70,24 @@ header {
 	justify-content: center;
 }
 
-@media only screen and (max-width: 767px) {
-	.wrapperPhoneMail,.wrapperLK {
-		font-size: 1.2em;
-	}
-}
+/*@media only screen and (min-width: 767px) {*/
+	/*.wrapperPhoneMail,.wrapperLK {*/
+		/*font-size: 1.2em;*/
+	/*}*/
 
-@media only screen and (max-width: 570px) {
+    /*.dropdownmenu-wrapper {*/
+        /*width: 150px;*/
+    /*}*/
+/*}*/
+
+@media only screen and (max-width: 864px) {
 	.wrapperPhoneMail,.wrapperLK {
 		font-size: 1.1em;
 	}
+
+    .dropdownmenu-wrapper {
+        width: 150px;
+    }
 }
 
 @media only screen and (max-width: 500px) {

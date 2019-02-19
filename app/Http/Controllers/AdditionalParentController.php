@@ -32,7 +32,7 @@ class AdditionalParentController extends Controller
     public function addNewAdditionalParentAction(Request $request)
     {
         if ($request->get('is_valid', -1) == -1) {
-            throw ValidationException::withMessages(['is_valid' => 'Вам необходимо принять соглашение!']);
+            throw ValidationException::withMessages(['is_valid' => 'Чтобы продолжить, установите флажок']);
         }
 
         try {

@@ -2,8 +2,9 @@
 
 @section('content')
     <div class="row col-12 justify-content-center pb-2">
-        <a href="http://xn--80aamwfdhffyx7d0e.xn--p1ai/"><img
-                src="{{asset('/themes/ourtheme/sign/img/logoSmartSchool.png')}}"></a>
+        <a href="http://xn--80aamwfdhffyx7d0e.xn--p1ai/">
+            <img src="{{asset('/themes/ourtheme/sign/img/logoSmartSchool.png')}}" alt="Cайт умнаяшколаднр.рф">
+        </a>
     </div>
 
     <form action="{{ route('login') }}" method="POST" id="autoAndRegForm">

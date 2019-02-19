@@ -87,6 +87,16 @@ $(function () {
     });
 
 
+    $("#dropdownmenu-title").click(function (event) {
+        let obj = $('#dropdownmenu-wrapper');
+        if (obj.css('display') === 'none') {
+            $('#dropdownmenu-wrapper').css('display', 'block');
+        } else {
+            $('#dropdownmenu-wrapper').css('display', 'none');
+        }
+
+    });
+
     var accordion = new Accordion($('#accordion'), false);
 
 });

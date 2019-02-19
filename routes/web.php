@@ -16,10 +16,11 @@ Route::prefix('login')->group(function () {
 
 /*Cabinet*/
 
-Route::match(['get', 'post'], '/', 'ChildrenController@indexAction')->name('index');
-Route::match(['get', 'post'], '/child/{id}', 'ChildrenController@childAction')->name('child');
-Route::get('/settings', 'SettingsController@indexAction')->name('settings');
-Route::post('/settings', 'SettingsController@saveAction');
+Route::match(['get', 'post'], '/', 'HomeController@indexAction')->name('index');
+Route::match(['get', 'post'], 'checkpoint', 'ChildrenController@indexAction')->name('checkpoint');
+Route::match(['get', 'post'], 'child/{id}', 'ChildrenController@childAction')->name('child');
+Route::get('settings', 'SettingsController@indexAction')->name('settings');
+Route::post('settings', 'SettingsController@saveAction');
 
 
 Route::prefix('additional-parents')->group(function () {
@@ -30,8 +31,8 @@ Route::prefix('additional-parents')->group(function () {
 
 
 /*Report*/
-Route::post('/report', 'ChildrenController@reportAction')->name('report');
-Route::post('/get-access-by-date', 'ChildrenController@getAccessByDateAction');
+Route::post('report', 'ChildrenController@reportAction')->name('report');
+Route::post('get-access-by-date', 'ChildrenController@getAccessByDateAction');
 
 /*Key*/
 Route::prefix('key')->group(function () {

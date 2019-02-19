@@ -12,14 +12,18 @@ class ChildrenController extends Controller
         $this->middleware('auth');
     }
 
-    public function indexAction(Request $request)
+    public function indexAction()
     {
-        $date = $request->get('date', date('Y-m-d'));
         try {
-            $result = $this->getData(env('TARGET') . '/front/children/index', ['date' => $date]);
+            $result = $this->getData(env('TARGET') . '/front/children/index');
         } catch (AuthException $e) {
             return $this->resetAuthAndRedirect();
         }
+
+        if ($result['data']['code'] == 200) {
+            return redirect(route('child', ['id' => $result['data']['id']]));
+        }
+
         return view('cabinet.cabinet', $result['data']);
     }
 

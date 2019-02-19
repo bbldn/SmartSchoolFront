@@ -7,25 +7,29 @@
 
     <title>Кабинет родителя: {{ config('app.name', 'Laravel') }}</title>
 
-    <script type="text/javascript" src="{{asset('/themes/ourtheme/cabinet/js/jQuery.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('/themes/ourtheme/cabinet/js/popper.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('/themes/ourtheme/cabinet/js/bootstrap.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('/themes/ourtheme/cabinet/js/accordionLK.js')}}"></script>
-    <script type="text/javascript" src="{{asset('/themes/ourtheme/cabinet/js/popup.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('/themes/ourtheme/cabinet/js/jQuery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/themes/ourtheme/cabinet/js/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/themes/ourtheme/cabinet/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/themes/ourtheme/cabinet/js/accordionLK.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/themes/ourtheme/cabinet/js/popup.js') }}"></script>
 
     {{--<link rel="stylesheet" type="text/css"--}}
-          {{--href="{{asset('/themes/ourtheme/cabinet/css/valeraVersionCss/normalize.css')}}">--}}
+    {{--href="{{asset('/themes/ourtheme/cabinet/css/valeraVersionCss/normalize.css')}}">--}}
     <link rel="stylesheet" type="text/css"
           href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/header.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/navbar.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/header.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/navbar.css') }}">
     <link rel="stylesheet" type="text/css"
           href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/lkParent.css') }}">
     <link rel="stylesheet" type="text/css"
           href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/mainStyle.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/popup.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/popup.css') }}">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/settings.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('/themes/ourtheme/cabinet/css/valeraVersionCss/settings.css') }}">
 
 </head>
 
@@ -42,23 +46,25 @@
             </div>
 
             <div class="col-3 h-100 col-flex">
-                <div class="wrapperLK">
-                    <a href="#" class="text-white">
-                        <p>{{"${parent['surname']} ${parent['name']} ${parent['patronymic']}"}}</p>
-                    </a>
-                    {{--<img src="img/user.png" class="logo pl-1" alt="">--}}
-                    <a href="{{route('settings')}}">
-                        <img style="width: 15px; height: 15px;"
-                             src="{{asset('/themes/ourtheme/cabinet/img/settingsLogo.png')}}">
-                    </a>
+                <div class="wrapperLK text-center">
+                    <p class="dropdownmenu-title" id="dropdownmenu-title">{{ "${parent['surname']} ${parent['name']} ${parent['patronymic']}" }}</p>
+                    <div class="dropdownmenu-wrapper" id="dropdownmenu-wrapper">
+                        <a class="dropdownmenu-item d-block" href="{{route('settings')}}">Управление уведомлениями</a>
+                        <a class="dropdownmenu-item d-block" href="{{ route('additional-parents') }}">Дополнительные представители</a>
+                        <a class="dropdownmenu-item d-block" href="{{ route('logout') }}">Выход</a>
+                    </div>
+                    {{--<a href="{{route('settings')}}">--}}
+                        {{--<img style="width: 15px; height: 15px;"--}}
+                             {{--src="{{ asset('/themes/ourtheme/cabinet/img/settingsLogo.png') }}">--}}
+                    {{--</a>--}}
                 </div>
             </div>
 
-            <div class="col-2 h-100 cfCenter">
-                <div class="wrapperLK">
-                    <a href="{{route('logout')}}"><p class="exitWhite">Выход</p></a>
-                </div>
-            </div>
+            {{--<div class="col-2 h-100 cfCenter">--}}
+                {{--<div class="wrapperLK">--}}
+                    {{--<a href="{{route('logout')}}"><p class="exitWhite">Выход</p></a>--}}
+                {{--</div>--}}
+            {{--</div>--}}
 
         </div>
     </div>

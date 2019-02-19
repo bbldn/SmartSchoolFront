@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="container text-center">
-        <a href="{{ route('additional-parents') }}" class="btn btn-primary">Дополнительные родители</a>
-        <hr>
+        {{--<a href="{{ route('additional-parents') }}" class="btn btn-primary">Дополнительные родители</a>--}}
+        {{--<hr>--}}
         <form method="post" action="{{route('settings')}}" class="text-center">
             @csrf
             <table class="table">
