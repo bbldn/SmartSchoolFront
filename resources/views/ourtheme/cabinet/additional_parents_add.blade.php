@@ -1,9 +1,9 @@
 @extends('cabinet.cabinet_base')
 
 @section('content')
-    <div class="container-fluid content">
+    <div class="container content">
         <div class="row justify-content-center">
-            <h1>Добавление родителя (представителя)</h1>
+            <h2>Добавление родителя (представителя)</h2>
         </div>
 
         <div class="row justify-content-center text-center">
@@ -89,7 +89,7 @@
                             <br><strong class="text-danger">{{ $errors->first('is_valid') }}</strong>
                         @endif
                     </div>
-                    <p class="h1">Пожалуйста, укажите добавленному родителю(представителю) ребенка(детей) информацию о котором(которых) ему разрешено получать:</p>
+                    <p class="h3">Пожалуйста, укажите добавленному родителю(представителю) ребенка(детей) информацию о котором(которых) ему разрешено получать:</p>
                     <table class="table table-hover table-striped">
                         <thead>
                         <tr>
