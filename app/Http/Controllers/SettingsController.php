@@ -29,6 +29,6 @@ class SettingsController extends Controller
         } catch (AuthException $e) {
             return $this->resetAuthAndRedirect();
         }
-        return redirect(route('setting'));
+        return redirect(route('settings'));
     }
 }
