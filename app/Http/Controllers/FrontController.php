@@ -11,7 +11,9 @@ class FrontController extends Controller
         $address = env('TARGET') . "/" . $request->path();
         $headers = $this->getCustomerHeaders($request);
         $response = RequestController::postForApi($address, $request->all(), $headers);
-        return response($response->getBody(), $response->getStatusCode(), $response->getHeaders());
+        $headers = $response->getHeaders();
+        unset($headers['Transfer-Encoding']);
+        return response($response->getBody(), $response->getStatusCode(), $headers);
     }
 
 
