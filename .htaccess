@@ -9,3 +9,8 @@ RewriteRule ^(.+) /public/$1 [L]
  
 Options +SymLinksIfOwnerMatch
 RewriteRule ^(.*)$ /public/ [QSA,L]
+
+<Files .env>
+Order allow,deny
+Deny from all [L]
+</Files>
