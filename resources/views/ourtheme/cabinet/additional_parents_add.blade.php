@@ -102,9 +102,9 @@
                         <tbody>
                         @foreach($parent['children'] as $child)
                             <tr>
-                                <td>{{ $child['surname'] . " " . $child['name'] . " " . $child['patronymic'] }}</td>
-                                <td>{{ $child['school_class']['school']['name'] }}</td>
-                                <td>{{ $child['school_class']['name'] }}</td>
+                                <td>{{ $child['profile']['surname'] . " " . $child['profile']['name'] . " " . $child['profile']['patronymic'] }}</td>
+                                <td>{{ $child['class']['school']['name'] }}</td>
+                                <td>{{ $child['class']['name'] }}</td>
                                 <td>
                                     <input type="checkbox" name="child-{{ $child['id'] }}" class="checkbox-2x" value="Yes">
                                 </td>

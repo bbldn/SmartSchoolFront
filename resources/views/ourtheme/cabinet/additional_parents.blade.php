@@ -26,7 +26,7 @@
                 @foreach($parent['additional_parents'] as $aparent)
                     <tr>
                         <td>{{ $aparent['user']['phone'] }}</td>
-                        <td>{{ $aparent['surname'] . " " . $aparent['name'] . " " . $aparent['patronymic'] }}</td>
+                        <td>{{ $aparent['profile']['surname'] . " " . $aparent['profile']['name'] . " " . $aparent['profile']['patronymic'] }}</td>
                         <td>
                             <a href="{{ route('additional-parents-edit', ['id' => $aparent['id']]) }}">Редактировать</a>
                             <a href="#">Удалить</a>

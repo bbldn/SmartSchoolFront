@@ -45,7 +45,7 @@
 
             <div class="col-3 h-100 col-flex">
                 <div class="wrapperLK text-center">
-                    <p class="dropdownmenu-title" id="dropdownmenu-title">{{ "${parent['surname']} ${parent['name']}" }}</p>
+                    <p class="dropdownmenu-title" id="dropdownmenu-title">{{ $parent['profile']['surname'] . " " . $parent['profile']['name'] }}</p>
                     {{--<a href="{{ route('actions') }}" class="text-white">{{ "${parent['surname']} ${parent['name']}" }}</a>--}}
                     <div class="dropdownmenu-wrapper" id="dropdownmenu-wrapper">
                         <a class="dropdownmenu-item d-block" href="{{ route('settings') }}">Управление уведомлениями</a>

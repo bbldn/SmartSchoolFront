@@ -25,7 +25,7 @@ class SettingsController extends Controller
     public function saveAction(Request $request)
     {
         try {
-            $this->getData(env('TARGET') . '/front/settings/save', ['request' => $request->all()]);
+            $this->getData(env('TARGET') . '/front/settings/save', $request->all());
         } catch (AuthException $e) {
             return $this->resetAuthAndRedirect();
         }

@@ -15,7 +15,7 @@
                         @foreach($parent['children'] as $value)
                             <li class="nav-item">
                                 <a class="nav-link flowing-scroll"
-                                   href="{{route('child', ['id' => $value['id']])}}">{{"${value['surname']} ${value['name']}"}}</a>
+                                   href="{{ route('child', ['id' => $value['id']]) }}">{{ $value['profile']['surname'] . " " . $value['profile']['name'] }}</a>
                             </li>
                         @endforeach
                     </ul>

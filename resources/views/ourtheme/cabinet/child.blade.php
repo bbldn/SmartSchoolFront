@@ -20,10 +20,11 @@
         <div class="object">
             <form method="POST" id="formLockUID">
                 @csrf
-                <p class="mb-2 text-danger">Вы действительно хотите ЗАБЛОКИРОВАТЬ пропуск {{$child['key']['short_codekey']}}?</p>
+                <p class="mb-2 text-danger">Вы действительно хотите ЗАБЛОКИРОВАТЬ
+                    пропуск {{ $child['key']['short_codekey'] }}?</p>
                 <p>Примечание: </p>
                 <p><textarea rows="3" cols="30" name="message"></textarea></p>
-                <input type="hidden" name="child_id" value="{{$child['id']}}">
+                <input type="hidden" name="child_id" value="{{ $child['id'] }}">
                 <input type="submit" id="okPP2" class="btn btn-primary" value="Да">
                 <input type="button" class="closePP btn btn-primary" value="Нет">
             </form>
@@ -34,10 +35,11 @@
         <div class="object">
             <form method="POST" id="formUnlockUID">
                 @csrf
-                <p class="mb-2 text-success">Вы действительно хотите РАЗБЛОКИРОВАТЬ пропуск {{$child['key']['short_codekey']}}?</p>
+                <p class="mb-2 text-success">Вы действительно хотите РАЗБЛОКИРОВАТЬ
+                    пропуск {{ $child['key']['short_codekey'] }}?</p>
                 <p>Примечание: </p>
                 <p><textarea rows="3" cols="30" name="message"></textarea></p>
-                <input type="hidden" name="child_id" value="{{$child['id']}}">
+                <input type="hidden" name="child_id" value="{{ $child['id'] }}">
                 <input type="submit" id="okPP3" class="btn btn-primary" value="Да">
                 <input type="button" class="closePP btn btn-primary" value="Нет">
             </form>
@@ -57,7 +59,7 @@
                             </div>
                             <ul class="submenu">
                                 {{--<li><a class="show_popup" rel="popup1" href="#">Запросить новый</a></li>--}}
-                                @if($child['key']['state'] == 1)
+                                @if ($child['key']['state'] == 1)
                                     <li>
                                         <a class="show_popup" rel="popup2" href="#" id="lockLink">
                                             Заблокировать пропуск
@@ -90,9 +92,9 @@
                             </div>
                             <ul class="submenu">
                                 <li>
-                                    <form method="POST" target="_blank" action="{{route('report')}}" id="reportForm">
+                                    <form method="POST" target="_blank" action="{{ route('report') }}" id="reportForm">
                                         @csrf
-                                        <input type="hidden" name="child_id" value="{{$child['id']}}">
+                                        <input type="hidden" name="child_id" value="{{ $child['id'] }}">
                                         <div class="form-group">
                                             <label class="labelNorm">Начальная дата</label>
                                             <input type="date" name="startDate" class="form-control" required>
@@ -103,11 +105,11 @@
                                         </div>
 
                                         {{--<div class="form-group">--}}
-                                            {{--<div class="custom-control custom-checkbox">--}}
-                                                {{--<input type="checkbox" value="yes" class="custom-control-input"--}}
-                                                       {{--name="save" id="saveCheckbox">--}}
-                                                {{--<label class="custom-control-label" for="saveCheckbox">Сохранить</label>--}}
-                                            {{--</div>--}}
+                                        {{--<div class="custom-control custom-checkbox">--}}
+                                        {{--<input type="checkbox" value="yes" class="custom-control-input"--}}
+                                        {{--name="save" id="saveCheckbox">--}}
+                                        {{--<label class="custom-control-label" for="saveCheckbox">Сохранить</label>--}}
+                                        {{--</div>--}}
                                         {{--</div>--}}
 
                                         <div class="form-group">
@@ -131,28 +133,29 @@
                 </div>
 
                 <div class="row">
-                    <img src="/themes/ourtheme/cabinet/img/{{$child['id']}}.jpg" class="childPhoto" alt="">
+                    <img src="/themes/ourtheme/cabinet/img/{{ $child['id'] }}.jpg" class="childPhoto" alt="">
                 </div>
 
                 <div class="row">
-                    <p>ФИО: {{$child['surname'] . " " . $child['name'] . " " . $child['patronymic']}}</p>
+                    <p>ФИО: {{ $child['profile']['surname'] . " " . $child['profile']['name'] . " " . $child['profile']['patronymic'] }}</p>
                 </div>
 
                 <div class="row">
                     <p>
                         Номер пропуска: {{$child['key']['short_codekey']}},
                         <strong id="UIDStatus"
-                              class="{{($child['key']['state'] == 0) ? 'text-danger': 'text-success'}}">({{$child['key']['stateText']}})
+                                class="{{ ($child['key']['state'] == 0) ? 'text-danger': 'text-success'}}">({{ $child['key']['stateText'] }}
+                            )
                         </strong>
                     </p>
                 </div>
 
                 <div class="row">
-                    <p>Учебное заведение: {{$child['school_class']['school']['name']}}</p>
+                    <p>Учебное заведение: {{ $child['class']['school']['name'] }}</p>
                 </div>
 
                 <div class="row">
-                    <p>Класс: {{$child['school_class']['name']}}</p>
+                    <p>Класс: {{ $child['class']['name'] }}</p>
                 </div>
 
                 <div class="row">
@@ -186,9 +189,9 @@
                         <tbody id="accessBody">
                         @foreach($child['access'] as $access)
                             <tr>
-                                <th scope="row" class="p-1">{{$access['number']}}</th>
-                                <td class="p-1">{{$access['time']}}</td>
-                                <td class="p-1">{{$access['direction_word']}}</td>
+                                <th scope="row" class="p-1">{{ $access['number'] }}</th>
+                                <td class="p-1">{{ $access['time'] }}</td>
+                                <td class="p-1">{{ $access['direction_word'] }}</td>
                             </tr>
                         @endforeach
                         </tbody>
