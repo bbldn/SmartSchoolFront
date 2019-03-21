@@ -15,25 +15,33 @@ class Controller extends BaseController
     protected function getData($address, $data = [])
     {
         $this->checkAndUpdateToken();
+
         $result = RequestController::post($address, $data);
+
         if (!is_array($result)) {
             abort(500);
         }
 
-        if ($result['ok'] == false && isset($result['status'])) {
-            switch ($result['status']) {
-                case 304:
-                case 302:
-                case 300:
-                    {
-                        throw new AuthException('Error token');
-                        break;
-                    }
-                case 301:
-                    {
-                        $this->updateToken();
-                        return $this->getData($address, $data);
-                    }
+        if (!$result['ok']) {
+            if (isset($result['status'])) {
+                switch ($result['status']) {
+                    case 304:
+                    case 302:
+                    case 300:
+                        {
+                            throw new AuthException('Error token');
+                            break;
+                        }
+                    case 301:
+                        {
+                            $this->updateToken();
+                            return $this->getData($address, $data);
+                        }
+                    case 403:
+                        {
+                            abort(403);
+                        }
+                }
             }
         }
 
@@ -53,9 +61,11 @@ class Controller extends BaseController
     protected function updateToken()
     {
         $result = RequestController::post(env('TARGET') . '/auth/token/refresh');
+
         if (!is_array($result)) {
             abort(500);
         }
+
         if ($result['ok'] == false) {
             throw new AuthException('Error token');
         }

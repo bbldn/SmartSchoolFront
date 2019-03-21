@@ -15,7 +15,7 @@ class HomeController extends Controller
     public function indexAction()
     {
         try {
-            $result = $this->getData(env('TARGET') . '/front/settings/index');
+            $result = $this->getData(env('TARGET') . '/front');
         } catch (AuthException $e) {
             return $this->resetAuthAndRedirect();
         }

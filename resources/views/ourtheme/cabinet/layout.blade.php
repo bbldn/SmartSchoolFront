@@ -48,9 +48,11 @@
                     <p class="dropdownmenu-title" id="dropdownmenu-title">{{ $parent['profile']['surname'] . " " . $parent['profile']['name'] }}</p>
                     {{--<a href="{{ route('actions') }}" class="text-white">{{ "${parent['surname']} ${parent['name']}" }}</a>--}}
                     <div class="dropdownmenu-wrapper" id="dropdownmenu-wrapper">
-                        <a class="dropdownmenu-item d-block" href="{{ route('settings') }}">Управление уведомлениями</a>
-                        <a class="dropdownmenu-item d-block" href="{{ route('additional-parents') }}">Представители (Родители)</a>
-                        <a class="dropdownmenu-item d-block" href="{{ route('additional-parents-edit', ['id' => $parent['id']]) }}">Настройки</a>
+                        <a class="dropdownmenu-item d-block" href="{{ route('notifications') }}">Управление уведомлениями</a>
+                        @if($parent['is_senior'])
+                            <a class="dropdownmenu-item d-block" href="{{ route('additional-parents') }}">Представители (Родители)</a>
+                        @endif
+                        <a class="dropdownmenu-item d-block" href="{{ route('settings') }}">Настройки</a>
                         <a class="dropdownmenu-item d-block" href="{{ route('logout') }}">Выход</a>
                     </div>
                 </div>

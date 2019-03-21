@@ -19,17 +19,19 @@ Route::prefix('login')->group(function () {
 Route::match(['get', 'post'], '/', 'HomeController@indexAction')->name('index');
 Route::match(['get', 'post'], 'checkpoint', 'ChildrenController@indexAction')->name('checkpoint');
 Route::match(['get', 'post'], 'child/{id}', 'ChildrenController@childAction')->name('child');
+Route::get('notifications', 'NotificationsController@indexAction')->name('notifications');
+Route::post('notifications', 'NotificationsController@saveAction');
 Route::get('settings', 'SettingsController@indexAction')->name('settings');
 Route::post('settings', 'SettingsController@saveAction');
-//Route::get('actions', 'ChildrenController@actionAction')->name('actions');
 
 
 Route::prefix('additional-parents')->group(function () {
     Route::match(['get', 'post'], '/', 'AdditionalParentController@additionalParentAction')->name('additional-parents');
     Route::get('add', 'AdditionalParentController@showAddAction')->name('additional-parents-add');
-    Route::post('add', 'AdditionalParentController@addNewAdditionalParentAction');
+    Route::post('add', 'AdditionalParentController@addAdditionalParentAction');
     Route::get('edit/{id}', 'AdditionalParentController@showEditAction')->name('additional-parents-edit');
-    Route::post('edit', 'AdditionalParentController@editNewAdditionalParentAction')->name('additional-parents-edit-save');
+    Route::post('edit', 'AdditionalParentController@editAdditionalParentAction')->name('additional-parents-edit-save');
+    Route::get('delete/{id}', 'AdditionalParentController@deleteAdditionalParentAction')->name('additional-parents-delete');
 });
 
 

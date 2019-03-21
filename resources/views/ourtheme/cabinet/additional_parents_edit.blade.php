@@ -8,7 +8,7 @@
 
         <div class="row justify-content-center text-center">
             <div class="object-editPer">
-                <form method="POST" action="{{ route('additional-parents-edit-save') }}">
+                <form method="POST" action="{{ $action }}">
                     @csrf
                     @if ($errors->has('error'))
                         <br><strong class="text-danger h4">{{ $errors->first('error') }}</strong>

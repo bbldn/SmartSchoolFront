@@ -29,7 +29,7 @@
                         <td>{{ $aparent['profile']['surname'] . " " . $aparent['profile']['name'] . " " . $aparent['profile']['patronymic'] }}</td>
                         <td>
                             <a href="{{ route('additional-parents-edit', ['id' => $aparent['id']]) }}">Редактировать</a>
-                            <a href="#">Удалить</a>
+                            <a href="{{ route('additional-parents-delete', ['id' => $aparent['id']]) }}">Удалить</a>
                         </td>
                     </tr>
                 @endforeach

@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container text-center">
-        <form method="post" action="{{ route('settings') }}" class="text-center">
+        <form method="post" action="{{ route('notifications') }}" class="text-center">
             @csrf
             <table class="table">
                 <tr>
