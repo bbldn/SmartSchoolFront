@@ -32,9 +32,8 @@
                     </a>
                 </div>
                 <div class="block col-sm-12 col-md-3">
-                    <span class="inWorkText">В РАЗРАБОТКЕ</span>
-                    <a href="#">
-                        <span class="textInBlock">Электронный журнал<br> и дневник</span>
+                    <a href="{{ route('journal.current.week') }}">
+                        <span class="textInBlock">Электронный дневник</span>
                     </a>
                 </div>
                 <div class="block col-sm-12 col-md-3">

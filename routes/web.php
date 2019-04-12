@@ -45,6 +45,14 @@ Route::prefix('key')->group(function () {
     Route::post('unlock', 'ChildrenController@unlockKeyAction');
 });
 
+Route::prefix('journal')->group(function () {
+    Route::get('/', 'JournalController@showCurrentWeekAction')->name('journal.current.week');
+    Route::get('schedule', 'JournalController@showScheduleAction')->name('journal.schedule');
+    Route::get('statistics', 'JournalController@showStatisticsAction')->name('journal.statistics');
+    Route::get('notes', 'JournalController@showNotesAction')->name('journal.notes');
+});
+
+
 /*API*/
 Route::post('/auth/{slug}', 'FrontController@getFront')->where('slug', '([A-z-\/_.]+)?');
 Route::post('/front/{slug}', 'FrontController@getFront')->where('slug', '([A-z-\/_.]+)?');
