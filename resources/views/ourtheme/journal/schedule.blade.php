@@ -22,7 +22,9 @@
 <header>
     <div class="headerWrapper">
         <div class="logoWrapper">
-            <img src="{{ asset('/themes/ourtheme/journal/img/logoSmartSchool.png') }}" alt="">
+            <a href="{{route('index')}}" class="w-100">
+                <img src="{{ asset("/themes/ourtheme/cabinet/img/logoSmartSchool.png") }}">
+            </a>
         </div>
         <div class="fioAndProfile mr-4">
             <span class="font-weight-bold">Петренко И.И.</span>
