@@ -45,25 +45,25 @@
 
         <div class="collapse navbar-collapse mt-2" id="navbarSupportedContent">
             <ul class="navbar-nav">
-                <li class="nav-item curNavItem">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('journal.current.week') }}">
                         <img src="{{ asset('/themes/ourtheme/journal/img/tekNedLogo.png') }}" alt="">
                         <span>ТЕКУЩАЯ НЕДЕЛЯ</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('journal.schedule') }}">
+                    <a class="nav-link" href="{{ route('journal.statistics') }}">
                         <img src="{{ asset('/themes/ourtheme/journal/img/yspevLogo.png') }}" alt="">
                         <span>УСПЕВАЕМОСТЬ</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('journal.statistics') }}">
+                    <a class="nav-link" href="{{ route('journal.schedule') }}">
                         <img src="{{ asset('/themes/ourtheme/journal/img/raspLogo.png') }}" alt="">
                         <span>РАСПИСАНИЕ</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item curNavItem">
                     <a class="nav-link" href="{{ route('journal.notes') }}">
                         <img src="{{ asset('/themes/ourtheme/journal/img/zametkiLogo.png') }}" alt="">
                         <span>ЗАМЕТКИ</span>
